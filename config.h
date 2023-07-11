@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* Constants */
-#define TERMINAL "alacritty"
-#define TERMCLASS "Alacritty"
+#define TERMINAL "st"
+#define TERMCLASS "St"
 #define BROWSER "librewolf"
 
 /* appearance */
@@ -33,7 +33,7 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {TERMINAL, "-t", "spterm", "-o", "window.dimensions.columns=120", "-o", "window.dimensions.lines=34", NULL };
+const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1}
@@ -168,7 +168,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,          setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_semicolon,  shiftview,      { .i = 1 } },
 	{ MODKEY|ShiftMask,             XK_semicolon,  shifttag,       { .i = 1 } },
-	{ MODKEY,                       XK_apostrophe, togglescratch,  {.ui = 1} },
+	{ MODKEY,                       XK_apostrophe, togglescratch,  {.ui = 0} },
 	{ MODKEY,                       XK_Return,     spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_z,          incrgaps,       {.i = +3 } },
 	{ MODKEY,                       XK_x,          incrgaps,       {.i = -3 } },
